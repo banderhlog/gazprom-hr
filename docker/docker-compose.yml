@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  web:
+    build: ./images/web
+    ports:
+      - 80:80
+    links:
+      - db
+    volumes:
+      - ../hrbank.ga:/var/www/hrbank.ga
+      - ./hosts:/etc/apache2/sites-enabled
+      - ./images/web/php.ini:/usr/local/etc/php.ini
+  db:
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    volumes:
+      - ./images/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  python:
+    build: ./images/python
+    volumes:
+    - ../py-test:/code
+    tty: true
