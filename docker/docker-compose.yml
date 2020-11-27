@@ -31,3 +31,14 @@ services:
     volumes:
     - ../py-test:/code
     tty: true
+  node:
+    image: library/node:10-alpine
+    container_name: node
+    working_dir: /usr/src/app
+    volumes:
+    - ../hrbank.ga:/usr/src/app
+    - ./images/node/init.sh:/init.sh
+    entrypoint:
+      - /init.sh
+    depends_on:
+      - web
