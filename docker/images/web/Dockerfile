@@ -24,6 +24,9 @@ ADD php.ini /usr/local/etc/php/php.ini
 
 RUN a2enmod rewrite headers
 
+RUN chown -R www-data:www-data /var/www/hrbank.ga/vendor/ && chown -R www-data:www-data /var/www/hrbank.ga/storage/
+RUN chown -R www-data:www-data php /var/www/hrbank.ga/artisan key:generate
+
 WORKDIR /var/www
 
 #CMD ["php-fpm"]
