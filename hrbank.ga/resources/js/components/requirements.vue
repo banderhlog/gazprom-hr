@@ -5,8 +5,11 @@
         <div class="col-6">
           <field-select v-model="lines[i].selected_requirement" title="Характеристика" :options="req"></field-select>
         </div>
-        <div class="col-6" v-if="checkSelectYear(line)">
-          <field-select title="Опыт работы" :options="[{id: 1, title: '1'}, {id: 2, title: '2'}]"></field-select>
+        <div class="col-6" v-if="line.selected_requirement">
+          <field-select v-if="checkSelectYear(line)" title="Опыт работы" :options="years"></field-select>
+          <!--          <field-select v-if="checkSelectOptions(line)" multiple="true" title="asdasd" :options="line.selected_requirement.options"></field-select>-->
+          <multiselect v-if="checkSelectOptions(line)" v-model="line.options" :multiple="true" placeholder="Дополнительно"
+                       label="title" :options="getSelectedOptions(line.selected_requirement.options)"></multiselect>
         </div>
       </div>
     </div>
@@ -18,25 +21,38 @@
 export default {
   name: "requirements",
   props: ['req'],
-  data: function (){
+  data: function () {
     return {
       requirements: JSON.parse(this.req),
-      lines: []
+      lines: [],
+      years: [
+        {id: 1, title: 'Без опыта'},
+        {id: 2, title: 'От 1 года до 3 лет'},
+        {id: 3, title: 'От 3 до 6 лет'},
+        {id: 4, title: 'Более 6 лет'}
+      ]
     }
   },
   methods: {
-    addLine(){
+    addLine() {
       this.lines.push({
-       selected_requirement: null
+        selected_requirement: null,
+        options: []
       })
     },
-    checkSelectYear(line){
-      if (line.selected_requirement){
-        if (line.selected_requirement.type === 'select-years'){
-          return true;
+    checkSelectYear(line) {
+      return line.selected_requirement.type === 'select-years';
+    },
+    checkSelectOptions(line) {
+      return line.selected_requirement.type === 'select-options';
+    },
+    getSelectedOptions(options) {
+      return options.map(option => {
+        if (option.type === 'version') {
+          option.title = option.title.includes('v') ? option.title : 'v' + option.title;
         }
-      }
-      return false;
+        return option;
+      })
     }
   }
 }

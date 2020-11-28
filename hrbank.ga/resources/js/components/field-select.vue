@@ -10,8 +10,7 @@
 
 <script>
 export default {
-  props: ['title', 'options'],
-
+  props: ['title', 'options', 'multiple'],
   data() {
     return {
       hover: false,
@@ -19,7 +18,8 @@ export default {
       value: '',
       items: typeof this.options === "string" ? JSON.parse(this.options) : this.options,
       selected: false,
-      selected_index: false
+      selected_index: false,
+      multiple_selected: []
     };
   },
   methods: {
@@ -38,10 +38,14 @@ export default {
       }, 200);
     },
     select(id, index) {
-      this.selected_id = id;
-      this.selected_index = index;
-      this.value = this.items[index].title;
-      this.$emit('input', this.items[index])
+      if (this.multiple){
+        this.multiple_selected.push(index);
+      } else {
+        this.selected_id = id;
+        this.selected_index = index;
+        this.value = this.items[index].title;
+        this.$emit('input', this.items[index]);
+      }
     }
   },
   computed: {

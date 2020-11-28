@@ -101,3 +101,20 @@
     background-color: $polar_star;
   }
 }
+
+.multiselect__tags{
+  border: 2px solid $silver_moon;
+  border-radius: 2px;
+}
+
+.multiselect__tag{
+  font-size: 16px;
+  line-height: 20px;
+  background-color: rgb(238, 241, 243);
+  color: rgb(38, 44, 64);
+  border-radius: 2px;
+}
+
+.multiselect__option.multiselect__option--highlight {
+  background: $polar_star;
+}
