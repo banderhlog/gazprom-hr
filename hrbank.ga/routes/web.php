@@ -35,5 +35,15 @@ Route::prefix('')->middleware('auth')->name('admin.')->namespace('Admin')->group
         Route::post('/{position_id}', 'PositionController@update')->name('update');
         Route::delete('/{position_id}', 'PositionController@delete')->name('delete');
     });
+
+    Route::prefix('vacancies')->name('vacancies.')->group(function (){
+        Route::get('/', 'VacancyController@index')->name('index');
+        Route::get('/add', 'VacancyController@add')->name('add');
+        Route::get('/{vacancy_id}', 'VacancyController@edit')->name('edit');
+
+        Route::post('/', 'VacancyController@create')->name('create');
+        Route::post('/{vacancy_id}', 'VacancyController@update')->name('update');
+        Route::delete('/{vacancy_id}', 'VacancyController@delete')->name('delete');
+    });
 });
 

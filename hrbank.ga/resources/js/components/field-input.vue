@@ -2,7 +2,7 @@
   <div class="input-field__wrapper">
     <div class="input-field" :class="fieldClass" @mouseenter="mouseenter" @mouseleave="mouseleave">
       <div class="input-field__placeholder" :class="placeholderClass">{{ title }}</div>
-      <input v-model="value" :type="type" class="input-field__input" @focusin="focusin" @focusout="focusout">
+      <input v-model="value" :type="type" :name="name" class="input-field__input" @focusin="focusin" @focusout="focusout">
     </div>
     <div v-if="error" class="input-field__error">{{ error }}</div>
   </div>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  props: ['title', 'error', 'type'],
+  props: ['title', 'error', 'type', 'name'],
 
   data(){
     return {
