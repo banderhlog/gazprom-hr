@@ -1,0 +1,10 @@
+.section{
+  padding: 52px 0;
+
+  &__title{
+    font-size: $h2_promo;
+    margin-bottom: 28px;
+    line-height: 40px;
+    font-weight: 500;
+  }
+}

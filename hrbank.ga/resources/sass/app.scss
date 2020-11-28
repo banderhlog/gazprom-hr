@@ -1,8 +1,13 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import "fonts";
 
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap-grid";
+
+@import "components/main";
+@import "components/section";
+@import "components/typography";
+@import "components/header";
+@import "components/preview";
+@import "components/input-field";

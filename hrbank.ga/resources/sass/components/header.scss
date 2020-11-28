@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 108px;
+  padding: 0 32px;
+  background: $azure;
+  background: linear-gradient(45deg, $azure 0%, $violet 100%);
+}
+
+.header__logo {
+
+}
+
+.header__links{
+
+}
+
+.header__link {
+  color: $white;
+  margin-bottom: 0;
+  font-size: $h3;
+}

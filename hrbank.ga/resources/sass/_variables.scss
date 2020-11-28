@@ -1,19 +1,67 @@
-// Body
-$body-bg: #f8fafc;
-
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+$font_family: 'ProximaNova', sans-serif;
+$h1_promo: 48px;
+$h2_promo: 40px;
+$h1: 28px;
+$h2: 22px;
+$h3: 18px;
 
+.h1_promo, .h2_promo, .h1, .h2, .h3{
+  margin-bottom: 28px;
+}
 // Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$nigth: #262C40;
+$white: #FFFFFF;
+$deap_sea: #0D356C;
+$azure: #0057B6;
+$clear_sky: #508BE2;
+$winter_cloud: #CEDFF4;
+$ice_cube: #E9F1F9;
+$asphalt: #7C8793;
+$grey_mouse: #B8BDCE;
+$silver_moon: #D7DEE9;
+$rainy_sky: #E6EAF0;
+$polar_star: #EEF1F3;
+$jon_show: #F7F9FB;
+$red_rose: #A32B2B;
+$red: #C84F4F;
+$pastel_red: #D26363;
+$powder: #F4DCDC;
+$harlequin: #239C3D;
+$green: #65CC7B;
+$pale_teal: #76DC8C;
+$mint: #E1F5E5;
+$choco: #D76913;
+$orange: #F5984E;
+$blue: #2157F4;
+$violet: #5960EA;
+$blue_active: #508ae2;
+
+:export {
+  nigth: $nigth;
+  white: $white;
+  deap_sea: $deap_sea;
+  azure: $azure;
+  clear_sky: $clear_sky;
+  winter_cloud: $winter_cloud;
+  ice_cube: $ice_cube;
+  asphalt: $asphalt;
+  grey_mouse: $grey_mouse;
+  silver_moon: $silver_moon;
+  rainy_sky: $rainy_sky;
+  polar_star: $polar_star;
+  jon_show: $jon_show;
+  red_rose: $red_rose;
+  red: $red;
+  pastel_red: $pastel_red;
+  powder: $powder;
+  harlequin: $harlequin;
+  green: $green;
+  pale_teal: $pale_teal;
+  mint: $mint;
+  choco: $choco;
+  orange: $orange;
+  blue: $blue;
+  violet: $violet;
+  blue_active: $blue_active;
+}
