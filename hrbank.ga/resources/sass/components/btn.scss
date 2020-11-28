@@ -1,0 +1,45 @@
+.btn {
+  border-radius: 2px;
+  border-style: solid;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: none;
+  border-image: none;
+
+  &_lg{
+    font-size: 16px;
+    padding: 14px 30px;
+  }
+
+  &_md{
+    padding: 12px 30px;
+    font-size: 16px;
+  }
+
+  &_sm{
+    padding: 8px 22px;
+    font-size: 14px;
+  }
+
+  &_xs{
+    padding: 6px 18px;
+    font-size: 12px;
+  }
+
+  &_blue{
+    background-color: $azure;
+    border-color: $azure;
+    color: $white;
+
+    &:hover {
+      background-color: $clear_sky;
+      border-color: $clear_sky;
+    }
+
+    &:active {
+      background-color: $deap_sea;
+      border-color: $deap_sea;
+    }
+  }
+}

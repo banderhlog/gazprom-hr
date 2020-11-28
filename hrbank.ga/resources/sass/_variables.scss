@@ -1,3 +1,4 @@
+$header_height: 108px;
 // Typography
 $font_family: 'ProximaNova', sans-serif;
 $h1_promo: 48px;
@@ -6,11 +7,8 @@ $h1: 28px;
 $h2: 22px;
 $h3: 18px;
 
-.h1_promo, .h2_promo, .h1, .h2, .h3{
-  margin-bottom: 28px;
-}
 // Colors
-$nigth: #262C40;
+$night: #262C40;
 $white: #FFFFFF;
 $deap_sea: #0D356C;
 $azure: #0057B6;
@@ -38,7 +36,7 @@ $violet: #5960EA;
 $blue_active: #508ae2;
 
 :export {
-  nigth: $nigth;
+  night: $night;
   white: $white;
   deap_sea: $deap_sea;
   azure: $azure;

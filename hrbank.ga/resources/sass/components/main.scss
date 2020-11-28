@@ -1,9 +1,31 @@
 html, body{
   margin: 0;
   font-family: $font_family;
-  color: $nigth;
+  color: $night;
+  font-size: 16px;
 }
 
 .link{
   text-decoration: none;
+}
+
+.subtitle{
+  margin-bottom: 20px;
+}
+
+.login-card__wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - (#{$header_height} * 1.5));
+}
+
+.login-card{
+  border: 2px solid $silver_moon;
+  padding: 32px;
+
+  & .input-field__wrapper{
+    width: 270px;
+  }
 }

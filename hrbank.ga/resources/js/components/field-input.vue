@@ -1,13 +1,16 @@
 <template>
-  <div class="input-field" :class="fieldClass" @mouseenter="mouseenter" @mouseleave="mouseleave">
-    <div class="input-field__placeholder" :class="placeholderClass">{{ title }}</div>
-    <input v-model="value" type="text" class="input-field__input" @focusin="focusin" @focusout="focusout">
+  <div class="input-field__wrapper">
+    <div class="input-field" :class="fieldClass" @mouseenter="mouseenter" @mouseleave="mouseleave">
+      <div class="input-field__placeholder" :class="placeholderClass">{{ title }}</div>
+      <input v-model="value" :type="type" class="input-field__input" @focusin="focusin" @focusout="focusout">
+    </div>
+    <div v-if="error" class="input-field__error">{{ error }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['title'],
+  props: ['title', 'error', 'type'],
 
   data(){
     return {
