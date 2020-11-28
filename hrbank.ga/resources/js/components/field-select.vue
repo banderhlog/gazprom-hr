@@ -2,61 +2,73 @@
   <div class="input-field" :class="fieldClass" @mouseenter="mouseenter" @mouseleave="mouseleave">
     <div class="input-field__placeholder" :class="placeholderClass">{{ title }}</div>
     <input v-model="value" type="text" class="input-field__input" @focusin="focusin" @focusout="focusout">
-    <div class="input-field__select">
-      <div class="input-field__option">PHP</div>
-      <div class="input-field__option">JS</div>
-      <div class="input-field__option">CSS</div>
+    <div class="input-field__select" :class="selectClass">
+      <div @click="select(item.id, i)" v-for="(item, i) in items" class="input-field__option">{{ item.title }}</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['title'],
+  props: ['title', 'options'],
 
-  data(){
+  data() {
     return {
       hover: false,
       focus: false,
-      value: ''
+      value: '',
+      items: typeof this.options === "string" ? JSON.parse(this.options) : this.options,
+      selected: false,
+      selected_index: false
     };
   },
   methods: {
-    mouseenter(){
+    mouseenter() {
       this.hover = true;
     },
-    mouseleave(){
+    mouseleave() {
       this.hover = false;
     },
-    focusin(){
+    focusin() {
       this.focus = true;
     },
-    focusout(){
-      this.focus = false;
+    focusout() {
+      setTimeout(() => {
+        this.focus = false;
+      }, 200);
+    },
+    select(id, index) {
+      this.selected_id = id;
+      this.selected_index = index;
+      this.value = this.items[index].title;
+      this.$emit('input', this.items[index])
     }
   },
   computed: {
-    fieldClass(){
+    fieldClass() {
       let result;
-      if (this.focus){
+      if (this.focus) {
         result = 'input-field_focus';
-      } else if (this.hover){
+      } else if (this.hover) {
         result = 'input-field_hover';
       }
 
       return result;
     },
-    placeholderClass(){
+    placeholderClass() {
       let result;
-      if (this.value.length > 0){
+      if (this.value.length > 0) {
         result = 'input-field__placeholder_pined'
       }
 
-      if (this.focus){
+      if (this.focus) {
         result = 'input-field__placeholder_focus input-field__placeholder_pined';
       }
 
       return result;
+    },
+    selectClass() {
+      return this.focus ? 'input-field__select_active' : '';
     }
   },
   mounted() {

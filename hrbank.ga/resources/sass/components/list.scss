@@ -1,6 +1,52 @@
-.list{
+.list {
   display: flex;
   flex-direction: column;
   border: 2px solid $rainy_sky;
   padding: 24px;
+
+  &__item {
+    padding: 16px 32px 8px;
+    border: 2px solid $rainy_sky;
+    margin-bottom: 4px;
+    position: relative;
+  }
+
+  &__item:hover {
+    border: 2px solid $clear_sky;
+
+    .list__item-title {
+      font-size: $h3;
+      color: $azure;
+      text-transform: capitalize;
+    }
+  }
+
+  &__item-edit {
+    position: absolute;
+    right: 32px;
+    top: 16px;
+    cursor: pointer;
+
+    &:hover{
+      fill: $clear_sky;
+    }
+  }
+
+  &__item-title {
+    font-size: $h3;
+    color: $clear_sky;
+    text-transform: capitalize;
+  }
+
+  &__item-footer{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item-footer-left{}
+
+  &__item-footer-right{
+    color: $asphalt;
+    font-size: 14px;
+  }
 }

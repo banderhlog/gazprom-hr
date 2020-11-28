@@ -23,9 +23,10 @@
                         <div class="h2">Требования</div>
                         <div class="subtitle">Составьте список требований для данной должности. В зависимости от выбранного требования, Вы можете дополнить его описанием или смежными с ним компетенциями</div>
                         <div class="row">
-                            <div class="col-6">
-                                <field-select title="Требование"></field-select>
-                            </div>
+
+{{--                                <field-select options='{{ $requirements }}' title="Требование"></field-select>--}}
+                                <requirements req='{{ $requirements }}'></requirements>
+
 {{--                            <div class="col-6">--}}
 {{--                                <field-select title="Требование"></field-select>--}}
 {{--                            </div>--}}
@@ -43,3 +44,9 @@
         </div>
     </div>
 @endsection
+<script>
+    import Requirements from "../../../js/components/requirements";
+    export default {
+        components: {Requirements}
+    }
+</script>
