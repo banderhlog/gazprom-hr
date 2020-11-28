@@ -10,16 +10,6 @@
 
   &_focus {
     border-color: $blue_active;
-
-    & .input-field__placeholder {
-      transform: translateY(-50%);
-      color: $azure;
-      background-color: $white;
-      border-radius: 4px;
-      margin-left: 8px;
-      font-size: 14px;
-      padding: 0 6px;
-    }
   }
 
   &__placeholder {
@@ -41,6 +31,20 @@
     -webkit-box-align: center;
     align-items: center;
     box-sizing: border-box;
+
+    &_pined {
+      border-radius: 4px;
+      margin-left: 8px;
+      font-size: 14px;
+      padding: 0 6px;
+      height: 15px;
+      transform: translateY(-50%);
+      background-color: $white;
+    }
+
+    &_focus {
+      color: $azure;
+    }
   }
 
   &__input {

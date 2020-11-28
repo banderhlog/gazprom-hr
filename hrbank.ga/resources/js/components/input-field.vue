@@ -1,7 +1,7 @@
 <template>
   <div class="input-field" :class="fieldClass" @mouseenter="mouseenter" @mouseleave="mouseleave">
-    <div class="input-field__placeholder">{{ title }}</div>
-    <input type="text" class="input-field__input" @focusin="focusin" @focusout="focusout">
+    <div class="input-field__placeholder" :class="placeholderClass">{{ title }}</div>
+    <input v-model="value" type="text" class="input-field__input" @focusin="focusin" @focusout="focusout">
   </div>
 </template>
 
@@ -13,6 +13,7 @@ export default {
     return {
       hover: false,
       focus: false,
+      value: ''
     };
   },
   methods: {
@@ -31,13 +32,26 @@ export default {
   },
   computed: {
     fieldClass(){
-      let fieldClass;
+      let result;
       if (this.focus){
-        fieldClass = 'input-field_focus';
+        result = 'input-field_focus';
       } else if (this.hover){
-        fieldClass = 'input-field_hover';
+        result = 'input-field_hover';
       }
-      return fieldClass;
+
+      return result;
+    },
+    placeholderClass(){
+      let result;
+      if (this.value.length > 0){
+        result = 'input-field__placeholder_pined'
+      }
+
+      if (this.focus){
+        result = 'input-field__placeholder_focus input-field__placeholder_pined';
+      }
+
+      return result;
     }
   },
   mounted() {
